@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 2 course - Styde.net</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="app" class="container">
+		
+		<div>
+			Welcome, {{ name }}
+		</div>
+
+		<button class="btn" v-on:click="sayHi">Say hi</button>
+
+		
+		
+		<footer class="footer">
+			<p>&copy; 2020 Styde.net.</p>
+		</footer>
+
+	</div>
+
+
+<script type="text/javascript" src="js/vue.js"></script>
+
+<script type="text/javascript">
+	
+	var vm = new Vue({
+		el : '#app',
+		data : {
+			name : ''
+		},
+		methods : {
+			sayHi()
+			{	
+				
+				this.name += 'Santiago'
+			}
+		}
+	})	
+
+</script>
+</body>
+</html>
