@@ -42,7 +42,7 @@
                 <textarea v-model="vue.description" class="form-control" rows="4"></textarea>
               </div>
 
-              <div v-if = "vue.description == '' " class="alert alert-warning">
+              <div v-if = "vue.description.trim() == '' " class="alert alert-warning">
                 <strong>Warning!</strong> You have to write a description.
               </div>
 
@@ -50,7 +50,7 @@
                 <strong>Great job!</strong> You are writing a description.
               </div>
 
-              <div v-if = "vue.description.length > 1000 " class="alert alert-danger">
+              <div v-if = "vue.description.trim().length > 1000 " class="alert alert-danger">
                 <strong>Wrong!</strong> Your description must be shortest possible.
               </div>
 
