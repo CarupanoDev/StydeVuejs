@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Curso de Vue 2">
+        <meta name="author" content="https://styde.net">
+        <link rel="icon" href="favicon.ico">
+
+        <title>Vue 2 course - Styde.net</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            
+
+            <h4>Had your worked with Vue.js?</h4>
+            <div class="radio">
+              <label class="radio-inline">
+                <input type="radio" v-model="vue.exp" v-bind:value="true"> Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" v-model="vue.exp" v-bind:value="false"> No
+              </label>
+            </div>
+            
+            <template v-if ="vue.exp">
+              <div class="form-group">
+                <label for="vue_years">How many experience years you have with Vue.js?</label>
+                <input v-model="vue.years" type="number" class="form-control">
+              </div>
+
+              <div v-if = "vue.years < 2" class = "form-group" :style="descriptionStyles">
+                <label class="control-label">What motivated you to learn Vue.js?</label>
+                <textarea v-model="vue.description" class="form-control" rows="4"></textarea>
+              </div>
+
+              <div v-else-if = "vue.years >= 2" class="form-group">
+                <label for="vue_years">Tell us about your experience with Vue.js</label>
+                <textarea v-model="vue.description" class="form-control" rows="4"></textarea>
+              </div>
+
+              <div v-if = "descriptionError != '' " class="help-block">
+                {{descriptionError}}
+              </div>
+
+    
+              </div>
+
+            </template>
+
+            <h3>Basics assets</h3>
+
+            <ul>
+              <li v-for = "asset in assets">
+                {{ asset }}
+              </li>
+            </ul>
+            
+            <h3>Tell us what assets you can add to our list</h3>
+            
+            <input v-model="newAsset" type="text">
+            <button @click = "addToAssets">Submit</button>
+
+            <footer class="footer">
+                <p>&copy; 2020 Styde.net.</p>
+            </footer>
+        </div>
+
+        <script type="text/javascript" src="js/vue.js"></script>
+  
+        <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+
+        <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
