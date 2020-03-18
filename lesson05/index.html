@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 2 course - Styde.net</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="app" class="container">
+		
+		<h4>Tasks</h4>
+		<ul v-if = "pendingTasks">
+			<li v-for = "(task, index) of tasks">
+			 	{{task.title}}
+			</li>
+		</ul>
+
+		<h4>Pending tasks</h4>
+		<ul v-if = "pendingTasks">
+			<li v-for = "task of pendingTasks">
+			 	{{task.title}}
+			</li>
+		</ul>
+		
+		<footer class="footer">
+			<p>&copy; 2020 Styde.net.</p>
+		</footer>
+
+	</div>
+
+
+<script type="text/javascript" src="js/vue.js"></script>
+
+<script type="text/javascript">
+	
+	var vm = new Vue({
+		el : '#app',
+		data : {
+			tasks:[
+				{
+					title: 'Learn VueJs.',
+					pending: false
+				},
+				{
+					title: 'Get a job at Mnonline',
+					pending: true
+				},
+				{
+					title: 'Bring joy to my family',
+					pending: true
+				}
+			]
+		},
+		computed:{
+			pendingTasks : function (){
+				return this.tasks.filter(function(item){
+					return item.pending;
+				});
+			}
+		}
+	});
+
+</script>
+</body>
+</html>
