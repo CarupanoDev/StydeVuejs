@@ -1,0 +1,23 @@
+body {
+    margin: 20px;
+}
+
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    color: #999;
+}
+
+li:hover{
+	cursor: pointer;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.text-del {
+    text-decoration: line-through;
+}
