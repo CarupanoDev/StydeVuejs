@@ -30,10 +30,6 @@ var vm = new Vue({
 				if(this.newTask != ''){
 					this.tasks.push({title: this.newTask, pending: pending});	
 				}
-				else{
-					console.log('d');
-				}
-
 				this.newTask = '';
 			},
 			changeTaskStatus(task){
