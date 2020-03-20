@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 2 course - Styde.net</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="app" class="container">
+
+		<input type="text" v-model="name" class="form-control">
+		<input type="text" v-model="email" class="form-control">
+		
+		<p>{{name | reversed}}</p>
+		<p>{{reverse(name)}}</p>
+		<p>{{ reversedName }}</p>
+		
+		<footer class="footer">
+			<p>&copy; 2020 Styde.net.</p>
+		</footer>
+
+	</div>
+
+
+<script type="text/javascript" src="js/vue.js"></script>
+
+<script type="text/javascript">
+	
+	var vm = new Vue({
+		el : '#app',
+		data: {
+      name : 'Santiago',
+      email : 'carupanodev@gmail.com'
+    },
+    methods: {
+    	reverse: function(value)
+    	{
+    		console.log('Computed');
+    		return value.split('').reverse().join('');
+    	}
+    },
+    computed:{
+    	reversedName: function(){
+    		console.log('Method');
+    		return this.name.split('').reverse().join('');
+    	}
+    },
+    filters:{
+    	reversed(value){
+    		console.log('Filter');
+    		return value.split('').reverse().join(''); 
+    	}
+    }
+	});
+
+</script>
+</body>
+</html>

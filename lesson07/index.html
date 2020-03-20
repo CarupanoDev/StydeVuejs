@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue 2 course - Styde.net</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="container">
+    
+    <p>Welcome, {{name | upper | title('Mr')}}</p>
+
+    <p>Welcome, {{name | title('Mr') | upper}}</p>
+
+    <p>{{1000.2| money}}</p>
+
+    <p>{{5 | square}}</p>
+    
+    <footer class="footer">
+      <p>&copy; 2020 Styde.net.</p>
+    </footer>
+
+  </div>
+
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/numeral.min.js"></script>
+<script type="text/javascript">
+  
+  Vue.filter('money', function(value){
+    return numeral(value).format('0,0[.]00 $');
+  })
+
+  var vm = new Vue({
+    el : '#app',
+    data: {
+          name : 'Santiago'
+    },
+    filters:{
+      upper(value){
+        return value.toUpperCase();
+      },
+      title(value, title){
+        return title + '. ' + value;
+      },
+      square(value){
+        return value * value;
+      }
+    }
+  });
+
+</script>
+</body>
+</html>
